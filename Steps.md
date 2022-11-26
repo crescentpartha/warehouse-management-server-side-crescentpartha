@@ -6,6 +6,7 @@
     - [`Copy Paste before Modification`](#copy-paste-before-modification)
     - [`How to get connection string from MongoDB Database`](#how-to-get-connection-string-from-mongodb-database)
     - [`How to get password from MongoDB`](#how-to-get-password-from-mongodb)
+  - [`Creating different type of API` (___GET/POST/DELETE/PUT___)](#creating-different-type-of-api-getpostdeleteput)
 
 # Books-Warehouse-Management
 
@@ -72,5 +73,11 @@ client.connect(err => {
 DB_USER=dbuser1
 DB_PASS=6B0TvhL6jSKNxzhp
 ```
+
+**[🔼Back to Top](#table-of-contents)**
+
+## `Creating different type of API` (___GET/POST/DELETE/PUT___)
+
+- [Load all products from database by creating a product API of get method](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone11/module66.5-CRUD-Update-and-Product-Management/04crud-product-management.md#load-all-products-from-database-by-creating-a-product-api-of-get-method)
 
 **[🔼Back to Top](#table-of-contents)**
