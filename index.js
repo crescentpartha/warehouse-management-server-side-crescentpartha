@@ -21,11 +21,19 @@ async function run() {
         const bookCollection = client.db('crudBookManagement').collection('book');
 
         // get all books data (json format) from database by creating book's GET API
-        app.get('/book', async (req, res) => {
+        app.get('/book', async(req, res) => {
             const query = {};
             const cursor = bookCollection.find(query);
             const books = await cursor.toArray();
             res.send(books);
+        });
+
+        // POST a book data from server-side to database
+        app.post('/book', async(req, res) => {
+            const newBook = req.body;
+            console.log('Adding a new book', newBook);
+            const result = await bookCollection.insertOne(newBook);
+            res.send(result);
         });
     }
     finally {
