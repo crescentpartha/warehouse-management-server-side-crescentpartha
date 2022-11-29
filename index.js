@@ -44,6 +44,14 @@ async function run() {
             console.log('One book item is deleted');
             res.send(result);
         });
+
+        // Load a particular book data from database to server-side | (id-wise data load)
+        app.get('/book/:id', async(req, res) => {
+            const id = req.params.id;
+            const query = {_id: ObjectId(id)};
+            const result = await bookCollection.findOne(query);
+            res.send(result);
+        });
     }
     finally {
         // await client.close(); // commented, if I want to keep connection active;
