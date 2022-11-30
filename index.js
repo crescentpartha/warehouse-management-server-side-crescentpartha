@@ -21,7 +21,7 @@ async function run() {
         const bookCollection = client.db('crudBookManagement').collection('book');
 
         // get all books data (json format) from database by creating book's GET API
-        app.get('/book', async(req, res) => {
+        app.get('/book', async (req, res) => {
             const query = {};
             const cursor = bookCollection.find(query);
             const books = await cursor.toArray();
@@ -29,7 +29,7 @@ async function run() {
         });
 
         // POST a book data from server-side to database
-        app.post('/book', async(req, res) => {
+        app.post('/book', async (req, res) => {
             const newBook = req.body;
             console.log('Adding a new book', newBook);
             const result = await bookCollection.insertOne(newBook);
@@ -37,19 +37,35 @@ async function run() {
         });
 
         // DELETE a book data and send from server-side to database
-        app.delete('/book/:id', async(req, res) => {
+        app.delete('/book/:id', async (req, res) => {
             const id = req.params.id;
-            const query = {_id: ObjectId(id)};
+            const query = { _id: ObjectId(id) };
             const result = await bookCollection.deleteOne(query);
             console.log('One book item is deleted');
             res.send(result);
         });
 
         // Load a particular book data from database to server-side | (id-wise data load)
-        app.get('/book/:id', async(req, res) => {
+        app.get('/book/:id', async (req, res) => {
             const id = req.params.id;
-            const query = {_id: ObjectId(id)};
+            const query = { _id: ObjectId(id) };
             const result = await bookCollection.findOne(query);
+            res.send(result);
+        });
+
+        // Update a book data from server-side to database
+        app.put('/book/:id', async (req, res) => {
+            const id = req.params.id;
+            const bookData = req.body;
+            const filter = { _id: ObjectId(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    quantity: bookData.quantity
+                }
+            };
+            const result = await bookCollection.updateOne(filter, updateDoc, options);
+            console.log('Product is updated');
             res.send(result);
         });
     }
