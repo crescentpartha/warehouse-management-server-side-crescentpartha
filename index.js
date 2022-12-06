@@ -97,6 +97,22 @@ async function run() {
             const result = await orderCollection.findOne(query);
             res.send(result);
         });
+
+        // Update a ordered book data from server-side to database for orderCollection
+        app.put('/order/:id', async (req, res) => {
+            const id = req.params.id;
+            const orderData = req.body;
+            const filter = { _id: ObjectId(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    quantity: orderData.quantity
+                }
+            };
+            const result = await orderCollection.updateOne(filter, updateDoc, options);
+            console.log('Product is updated');
+            res.send(result);
+        });
     }
     finally {
         // await client.close(); // commented, if I want to keep connection active;
