@@ -19,8 +19,11 @@ async function run() {
     try {
         await client.connect();
         const bookCollection = client.db('crudBookManagement').collection('book');
+        const orderCollection = client.db('crudBookManagement').collection('order');
 
-        // get all books data (json format) from database by creating book's GET API
+        /* For bookCollection */
+
+        // get all books data (json format) from database by creating book's GET API for bookCollection
         app.get('/book', async (req, res) => {
             const query = {};
             const cursor = bookCollection.find(query);
@@ -28,7 +31,7 @@ async function run() {
             res.send(books);
         });
 
-        // POST a book data from server-side to database
+        // POST a book data from server-side to database for bookCollection
         app.post('/book', async (req, res) => {
             const newBook = req.body;
             console.log('Adding a new book', newBook);
@@ -36,7 +39,7 @@ async function run() {
             res.send(result);
         });
 
-        // DELETE a book data and send from server-side to database
+        // DELETE a book data and send from server-side to database for bookCollection
         app.delete('/book/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -45,7 +48,7 @@ async function run() {
             res.send(result);
         });
 
-        // Load a particular book data from database to server-side | (id-wise data load)
+        // Load a particular book data from database to server-side | (id-wise data load) for bookCollection
         app.get('/book/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -53,7 +56,7 @@ async function run() {
             res.send(result);
         });
 
-        // Update a book data from server-side to database
+        // Update a book data from server-side to database for bookCollection
         app.put('/book/:id', async (req, res) => {
             const id = req.params.id;
             const bookData = req.body;
@@ -66,6 +69,16 @@ async function run() {
             };
             const result = await bookCollection.updateOne(filter, updateDoc, options);
             console.log('Product is updated');
+            res.send(result);
+        });
+
+        /* For orderCollection */
+
+        // POST a ordered book data from server-side to database for orderCollection
+        app.post('/order', async (req, res) => {
+            const newOrder = req.body;
+            console.log('Adding a new book', newOrder);
+            const result = await orderCollection.insertOne(newOrder);
             res.send(result);
         });
     }
