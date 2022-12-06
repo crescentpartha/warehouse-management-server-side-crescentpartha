@@ -81,6 +81,14 @@ async function run() {
             const result = await orderCollection.insertOne(newOrder);
             res.send(result);
         });
+
+        // get all ordered books data (json format) from database by creating order's GET API for orderCollection
+        app.get('/order', async (req, res) => {
+            const query = {};
+            const cursor = orderCollection.find(query);
+            const orders = await cursor.toArray();
+            res.send(orders);
+        });
     }
     finally {
         // await client.close(); // commented, if I want to keep connection active;
