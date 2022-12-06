@@ -89,6 +89,14 @@ async function run() {
             const orders = await cursor.toArray();
             res.send(orders);
         });
+
+        // Load a particular ordered book data from database to server-side | (id-wise data load) for orderCollection
+        app.get('/order/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await orderCollection.findOne(query);
+            res.send(result);
+        });
     }
     finally {
         // await client.close(); // commented, if I want to keep connection active;
