@@ -98,5 +98,6 @@ DB_PASS=6B0TvhL6jSKNxzhp
   - [ItemDetail.js](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha/blob/main/books-warehouse/src/components/Pages/Home/InventoryItems/ItemDetail/ItemDetail.js)
 - Load a particular ordered book data from database to server-side | (email-wise data load) for orderCollection
   - [index.js](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-crescentpartha/blob/main/index.js)
+- DELETE a Particular ordered book data from server-side to database for orderCollection
 
 **[🔼Back to Top](#table-of-contents)**

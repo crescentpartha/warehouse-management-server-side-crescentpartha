@@ -39,7 +39,7 @@ async function run() {
             res.send(result);
         });
 
-        // DELETE a book data and send from server-side to database for bookCollection
+        // DELETE a book data from server-side to database for bookCollection
         app.delete('/book/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -121,6 +121,15 @@ async function run() {
             const cursor = orderCollection.find(query);
             const emailOrders = await cursor.toArray();
             res.send(emailOrders);
+        });
+
+        // DELETE a Particular ordered book data from server-side to database for orderCollection
+        app.delete('/order/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await orderCollection.deleteOne(query);
+            console.log('One book item is deleted');
+            res.send(result);
         });
     }
     finally {
