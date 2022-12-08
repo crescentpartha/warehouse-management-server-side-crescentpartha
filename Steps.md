@@ -96,5 +96,7 @@ DB_PASS=6B0TvhL6jSKNxzhp
   - Create a Custom hooks with dependency to load a particular orders book data from orderCollection (`useLoadSingleOrderedBookItem.js`)
   - [Update a single product info according to id](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone11/module66.5-CRUD-Update-and-Product-Management/04crud-product-management.md#update-a-single-product-info-according-to-id)
   - [ItemDetail.js](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha/blob/main/books-warehouse/src/components/Pages/Home/InventoryItems/ItemDetail/ItemDetail.js)
+- Load a particular ordered book data from database to server-side | (email-wise data load) for orderCollection
+  - [index.js](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-crescentpartha/blob/main/index.js)
 
 **[🔼Back to Top](#table-of-contents)**

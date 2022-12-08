@@ -113,6 +113,15 @@ async function run() {
             console.log('Product is updated');
             res.send(result);
         });
+
+        // Load a particular ordered book data from database to server-side | (email-wise data load) for orderCollection
+        app.get('/order/email/:email', async (req, res) => {
+            const emailAddress = req.params.email;
+            const query = { email: emailAddress };
+            const cursor = orderCollection.find(query);
+            const emailOrders = await cursor.toArray();
+            res.send(emailOrders);
+        });
     }
     finally {
         // await client.close(); // commented, if I want to keep connection active;
