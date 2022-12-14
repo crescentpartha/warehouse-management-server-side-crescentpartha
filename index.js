@@ -72,6 +72,12 @@ async function run() {
             res.send(result);
         });
 
+        // Book product count: How many books products have in the database | {"count": 20}
+        app.get('/bookCount', async (req, res) => {
+            const count = await bookCollection.estimatedDocumentCount(); // deprecatedWarning solution;
+            res.send({count});
+        });
+
         /* For orderCollection */
 
         // POST a ordered book data from server-side to database for orderCollection
