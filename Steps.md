@@ -100,9 +100,12 @@ DB_PASS=6B0TvhL6jSKNxzhp
   - [index.js](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-crescentpartha/blob/main/index.js)
 - DELETE a Particular ordered book data from server-side to database for orderCollection
 - Implement Pagination
-  - [Pagination and Load Data by filter](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#module-67-pagination-and-load-data-by-filter)
-  - [get page count and Create pagination button](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#675-interesting-get-page-count-and-create-pagination-button)
-  - [product count: How many products have in the database (Fix deprecatedWarning)](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#modified-code-product-count-how-many-products-have-in-the-database-fix-deprecatedwarning)
+  - [67.4 Introduction to pagination and pagination concept](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#674-introduction-to-pagination-and-pagination-concept)
+    - [Pagination and Load Data by filter](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#module-67-pagination-and-load-data-by-filter)
+  - [67.5 get page count and Create pagination button](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#675-interesting-get-page-count-and-create-pagination-button)
+    - [product count: How many products have in the database (Fix deprecatedWarning)](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#modified-code-product-count-how-many-products-have-in-the-database-fix-deprecatedwarning)
+  - [67.6 Set Page and Size state and send search query to server](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#676-set-page-and-size-state-and-send-search-query-to-server)
+  - [67.7 Load data based on the page number and size (no of products)](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone08/module48-simple-react-SPA-with-simple-E-commerce/02ema-john-simple.md#677-interesting-load-data-based-on-the-page-number-and-size-no-of-products)
 
 
 **[🔼Back to Top](#table-of-contents)**

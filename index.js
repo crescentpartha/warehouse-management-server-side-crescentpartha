@@ -25,9 +25,20 @@ async function run() {
 
         // get all books data (json format) from database by creating book's GET API for bookCollection
         app.get('/book', async (req, res) => {
+            // console.log('query: ', req.query);
+            const page = parseInt(req.query.currentPage);
+            const size = parseInt(req.query.productSize);
             const query = {};
             const cursor = bookCollection.find(query);
-            const books = await cursor.toArray();
+
+            // Load data based on the currentPage and productSize;
+            let books;
+            if(page || size) {
+                books = await cursor.skip(page*size).limit(size).toArray();
+            }
+            else {
+                books = await cursor.toArray();
+            }
             res.send(books);
         });
 
