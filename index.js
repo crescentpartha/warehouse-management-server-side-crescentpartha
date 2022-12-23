@@ -11,6 +11,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// create middleware | Send jwt token in the server, to verify and decode jwt token
+function verifyJWT(req, res, next) {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        return res.status(401).send({ message: 'unauthorized access' });
+    }
+    const token = authHeader.split(' ')[1];
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(403).send({ message: 'Forbidden access' });
+        }
+        // console.log('decoded', decoded);
+        req.decoded = decoded;
+        next();
+    })
+    // console.log('inside verifyJWT', authHeader);
+}
+
+
 // connection setup with database with secure password on environment variable
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tgnb0dt.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -34,8 +53,8 @@ async function run() {
 
             // Load data based on the currentPage and productSize;
             let books;
-            if(page || size) {
-                books = await cursor.skip(page*size).limit(size).toArray();
+            if (page || size) {
+                books = await cursor.skip(page * size).limit(size).toArray();
             }
             else {
                 books = await cursor.toArray();
@@ -87,7 +106,7 @@ async function run() {
         // Book product count: How many books products have in the database | {"count": 20}
         app.get('/bookCount', async (req, res) => {
             const count = await bookCollection.estimatedDocumentCount(); // deprecatedWarning solution;
-            res.send({count});
+            res.send({ count });
         });
 
         /* For orderCollection */
@@ -133,12 +152,30 @@ async function run() {
         });
 
         // Load a particular ordered book data from database to server-side | (email-wise data load) for orderCollection
-        app.get('/order/email/:email', async (req, res) => {
-            const emailAddress = req.params.email;
-            const query = { email: emailAddress };
-            const cursor = orderCollection.find(query);
-            const emailOrders = await cursor.toArray();
-            res.send(emailOrders);
+        app.get('/order/email/:email', verifyJWT, async (req, res) => {
+            // const authHeader = req.headers.authorization;
+            // console.log(authHeader);
+
+            // Send jwt token in the server, to verify and decode jwt token;
+            const decodedEmail = req.decoded.email;
+            // const email = req.query.email;
+            const email = req.headers.email;
+            if (email === decodedEmail) {
+                const emailAddress = req.params.email;
+                const query = { email: emailAddress };
+                const cursor = orderCollection.find(query);
+                const emailOrders = await cursor.toArray();
+                res.send(emailOrders);
+            }
+            else {
+                res.status(403).send({message: 'forbidden access'});
+            }
+
+            // const emailAddress = req.params.email;
+            // const query = { email: emailAddress };
+            // const cursor = orderCollection.find(query);
+            // const emailOrders = await cursor.toArray();
+            // res.send(emailOrders);
         });
 
         // DELETE a Particular ordered book data from server-side to database for orderCollection
@@ -153,12 +190,12 @@ async function run() {
         /* For Auth or JWT */
 
         // AUTH | After login, we issue a token | Create JWT Token on server-side, Get jwt token on client-side
-        app.post('/login', async(req, res) => {
+        app.post('/login', async (req, res) => {
             const user = req.body;
             const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
                 expiresIn: '1d' // 1 day expire date
             });
-            res.send({accessToken});
+            res.send({ accessToken });
         });
     }
     finally {

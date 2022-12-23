@@ -111,5 +111,7 @@ DB_PASS=6B0TvhL6jSKNxzhp
   - [68.5 Introduction JWT token](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone10/module60-responsive-react-website-and-react-recap/00module-overview-and-react-review.md#json-web-tokens-jwt--jsonwebtoken---introduction)
     - [Install JWT (in server-side)](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone10/module60-responsive-react-website-and-react-recap/00module-overview-and-react-review.md#install-jwt)
   - [68.6 Create JWT Token, Get jwt token on client-side](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone10/module60-responsive-react-website-and-react-recap/00module-overview-and-react-review.md#686-advanced-create-jwt-token-get-jwt-token-on-client-side)
+  - [68.7 Send jwt token in the server, verify and decode jwt token](https://github.com/crescentpartha/projectsHero/blob/main/milestone-module/milestone10/module60-responsive-react-website-and-react-recap/00module-overview-and-react-review.md#687-advanced-send-jwt-token-in-the-server-verify-and-decode-jwt-token)
+    - Modify `useLoadEmailOrderedBooks.js`
 
 **[🔼Back to Top](#table-of-contents)**
