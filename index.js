@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 const port = process.env.PORT || 5000;
@@ -147,6 +148,17 @@ async function run() {
             const result = await orderCollection.deleteOne(query);
             console.log('One book item is deleted');
             res.send(result);
+        });
+
+        /* For Auth or JWT */
+
+        // AUTH | After login, we issue a token | Create JWT Token on server-side, Get jwt token on client-side
+        app.post('/login', async(req, res) => {
+            const user = req.body;
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+                expiresIn: '1d' // 1 day expire date
+            });
+            res.send({accessToken});
         });
     }
     finally {
