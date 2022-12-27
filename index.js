@@ -37,7 +37,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 // Create dynamic data and send/get to/from the database
 async function run() {
     try {
-        await client.connect();
+        // await client.connect();
+        client.connect();
         const bookCollection = client.db('crudBookManagement').collection('book');
         const orderCollection = client.db('crudBookManagement').collection('order');
 
