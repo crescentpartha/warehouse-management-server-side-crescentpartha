@@ -3,8 +3,9 @@
 ## `Deploy and Hosting`
 
 - __Deploy in Firebase:__ [Live Website](https://book-warehouse-managemen-b7590.web.app "Live Website Link")
-- __GitHub Repositories:__ [Client-Side](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha "Client-Side Code of Books Warehouse") | [Server-side](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-crescentpartha "Server-Side Code of Books Warehouse")
-- __GitHub Issues:__ [Issues](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha/issues?q=is%3Aissue+is%3Aclosed "All Closed Issues of Books Warehouse")
+- __GitHub Repositories (Private):__ [Client-Side](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha "Client-Side Code of Books Warehouse") | [Server-side](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-crescentpartha "Server-Side Code of Books Warehouse")
+- __GitHub Repositories (Public):__ [Client-Side](https://github.com/crescentpartha/warehouse-management-client-side-crescentpartha "Client-Side Code of Books Warehouse") | [Server-side](https://github.com/crescentpartha/warehouse-management-server-side-crescentpartha "Server-Side Code of Books Warehouse")
+- __GitHub Issues-Pulls (Private):__ [Issues](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha/issues?q=is%3Aissue+is%3Aclosed "All Closed Issues of Books Warehouse") | [Pull Requests](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-crescentpartha/pulls?q=is%3Apr+is%3Aclosed "All Closed Pull Requests of Books Warehouse")
 
 ## `Description`
 
