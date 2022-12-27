@@ -215,6 +215,7 @@ client.connect();
 
 https://localhost:3000/login > https://books-warehouse-management-server-side-crescentpartha.vercel.app/login
 ```
-8. Check ___everything works___ fine or not, then ___pull___ all modification on ___remote repository___.
+8. Run `npm run build` and then run `firebase deploy`
+9. Check ___everything works___ fine or not, then ___pull___ all modification on ___remote repository___.
 
 **[🔼Back to Top](#table-of-contents)**
